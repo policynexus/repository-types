@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "artifacts": {
+            "items": {
+                "properties": {
+                    "extension": {
+                        "enum": [
+                            "mp3",
+                            "pdf"
+                        ],
+                        "type": "string"
+                    },
+                    "uri": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "kind": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "pageURL": {
+            "type": "string"
+        },
+        "published": {
+            "type": "string"
+        },
+        "topics": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+

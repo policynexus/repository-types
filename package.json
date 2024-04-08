@@ -1,0 +1,29 @@
+{
+  "name": "policynexus-repository-types",
+  "version": "1.0.0",
+  "description": "Typedefinitions for PolicyNexus repositories",
+  "types": "main.d.ts",
+  "scripts": {
+    "schema:repository": "typescript-json-schema main.d.ts RepositoryConfig > schemas/policynexus-repository.schema.json",
+    "schema:document": "typescript-json-schema main.d.ts Document > schemas/policynexus-document.schema.json",
+    "build": "npm run schema:repository ; npm run schema:document",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/policynexus/repository-types.git"
+  },
+  "keywords": [
+    "policynexus",
+    "types"
+  ],
+  "author": "Jan Dillenberger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/policynexus/repository-types/issues"
+  },
+  "homepage": "https://github.com/policynexus/repository-types#readme",
+  "devDependencies": {
+    "typescript-json-schema": "^0.63.0"
+  }
+}
