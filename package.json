@@ -27,8 +27,5 @@
   "devDependencies": {
     "ts-node": "^10.9.2",
     "typescript-json-schema": "^0.63.0"
-  },
-  "dependencies": {
-    "ts-number-range": "^1.0.4"
   }
 }
