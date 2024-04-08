@@ -1,6 +1,6 @@
 {
   "name": "@policynexus/repository-types",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "description": "Typedefinitions for PolicyNexus repositories",
   "main": "main",
   "types": "main.d.ts",
