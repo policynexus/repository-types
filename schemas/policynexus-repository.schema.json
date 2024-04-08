@@ -24,7 +24,7 @@
             "properties": {
                 "file": {
                     "description": "The url of the index file.\nThe file should be a text file with one line per document.\nEach line should be a document hash, that uniquely identifies a JSON file.",
-                    "format": "uri",
+                    "format": "uri-reference",
                     "type": "string"
                 },
                 "sortBy": {
