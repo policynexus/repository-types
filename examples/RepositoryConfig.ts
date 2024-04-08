@@ -1,13 +1,19 @@
-import PolicyNexusTypes from 'policynexus-repository-types'
-
+// import PolicyNexusTypes from '@PolicyNexus/repository-types' 
+import PolicyNexusTypes from '../main'
 
 const repositoryConfig: PolicyNexusTypes.RepositoryConfig = {
+    $schema: "https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-repository-config.schema.json",
     documents: "https://example.com/documents",
     indexes: [
         {
             file: "index.txt",
-            sortBy: "published:date"
+            sortBy: {
+                field: "published",
+                order: "asc"
+            },
+            updatedAt: "2021-08-01T00:00:00Z"
         }
     ]
-
 }
+
+console.log(repositoryConfig)

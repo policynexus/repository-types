@@ -1,25 +1,30 @@
-export type Artifact = {
-    uri: string,
-    extension: "pdf" | "mp3"
-}
+import { CreatedBy } from "./types/CreatedBy"
+import { Artifact } from "./types/Artifact"
+import { RepositoryIndex } from "./types/RepositoryIndex"
+import { Schema } from "./types/Schema"
+import { UpdatedAt } from "./types/UpdatedAt"
+import { Published } from "./types/PublishedOn"
 
-export interface Document {
-    $schema: string,
-    pageURL: string,
+
+export type Document = Schema & UpdatedAt & Published & {
     name: string,
-    topics: string[],
-    kind: string
-    published: string,
-    artifacts: Artifact[]
+    description?: string,
+    createdBy: CreatedBy | undefined,
+    artifacts: Artifact[],
+    tags: string[],
+    additionalProperties?: {
+        [key: string]: any
+    }
 }
 
+export type RepositoryConfig = Schema & {
 
-export interface RepositoryIndex {
-    file: string,
-    sortBy: "published:date" | "name:asc" | "name:desc"
-}
-
-export interface RepositoryConfig {
+    /**
+     * Path to the documents.
+     * Usually something like "documents/*.json"
+     */
     documents: string,
-    indexes: RepositoryIndex[]
+    indexes?: RepositoryIndex[]
 }
+
+

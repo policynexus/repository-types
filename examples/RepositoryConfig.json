@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-repository.schema.json",
+    "indexes": [
+        {
+            "file": "index.txt",
+            "sortBy": {
+                "field": "published",
+                "order": "asc"
+            }
+        }
+    ],
+    "documents": "documents/*.json"
+}
