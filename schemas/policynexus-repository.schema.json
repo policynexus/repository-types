@@ -1,34 +1,70 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "allOf": [
+        {
+            "$ref": "#/definitions/Schema"
+        },
+        {
+            "properties": {
+                "documents": {
+                    "type": "string"
+                },
+                "indexes": {
+                    "items": {
+                        "$ref": "#/definitions/RepositoryIndex"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    ],
     "definitions": {
         "RepositoryIndex": {
             "properties": {
                 "file": {
+                    "description": "The url of the index file.\nThe file should be a text file with one line per document.\nEach line should be a document hash, that uniquely identifies a JSON file.",
+                    "format": "uri",
                     "type": "string"
                 },
                 "sortBy": {
-                    "enum": [
-                        "name:asc",
-                        "name:desc",
-                        "published:date"
-                    ],
+                    "description": "The field to sort the documents by and the order.",
+                    "properties": {
+                        "field": {
+                            "enum": [
+                                "name",
+                                "published"
+                            ],
+                            "type": "string"
+                        },
+                        "order": {
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "updatedAt": {
+                    "description": "Date and time when the index was last updated.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Schema": {
+            "properties": {
+                "$schema": {
+                    "description": "JSON Schema URI",
+                    "format": "uri",
                     "type": "string"
                 }
             },
             "type": "object"
         }
-    },
-    "properties": {
-        "documents": {
-            "type": "string"
-        },
-        "indexes": {
-            "items": {
-                "$ref": "#/definitions/RepositoryIndex"
-            },
-            "type": "array"
-        }
-    },
-    "type": "object"
+    }
 }
 

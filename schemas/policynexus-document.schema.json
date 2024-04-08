@@ -1,46 +1,175 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "properties": {
-        "$schema": {
-            "type": "string"
+    "allOf": [
+        {
+            "$ref": "#/definitions/Schema"
         },
-        "artifacts": {
-            "items": {
-                "properties": {
-                    "extension": {
-                        "enum": [
-                            "mp3",
-                            "pdf"
-                        ],
+        {
+            "$ref": "#/definitions/UpdatedAt"
+        },
+        {
+            "$ref": "#/definitions/Published"
+        },
+        {
+            "properties": {
+                "additionalProperties": {
+                    "additionalProperties": {},
+                    "type": "object"
+                },
+                "artifacts": {
+                    "items": {
+                        "$ref": "#/definitions/Artifact"
+                    },
+                    "type": "array"
+                },
+                "createdBy": {
+                    "$ref": "#/definitions/CreatedBy"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "items": {
                         "type": "string"
                     },
-                    "uri": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
+                    "type": "array"
+                }
             },
-            "type": "array"
-        },
-        "kind": {
-            "type": "string"
-        },
-        "name": {
-            "type": "string"
-        },
-        "pageURL": {
-            "type": "string"
-        },
-        "published": {
-            "type": "string"
-        },
-        "topics": {
-            "items": {
-                "type": "string"
-            },
-            "type": "array"
+            "type": "object"
         }
-    },
-    "type": "object"
+    ],
+    "definitions": {
+        "Artifact": {
+            "anyOf": [
+                {
+                    "properties": {
+                        "type": {
+                            "const": "pdf",
+                            "type": "string"
+                        },
+                        "uri": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                {
+                    "properties": {
+                        "type": {
+                            "const": "mp3",
+                            "type": "string"
+                        },
+                        "uri": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "CreatedBy": {
+            "anyOf": [
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/UpdatedAt"
+                        },
+                        {
+                            "properties": {
+                                "author": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "format": "email",
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "properties": {
+                                "type": {
+                                    "const": "person",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ]
+                },
+                {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/UpdatedAt"
+                        },
+                        {
+                            "properties": {
+                                "author": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "format": "email",
+                                    "type": "string"
+                                },
+                                "website": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "properties": {
+                                "scraperURL": {
+                                    "type": "string"
+                                },
+                                "sourceURL": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "const": "scraper",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Published": {
+            "properties": {
+                "publishedOn": {
+                    "format": "date",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Schema": {
+            "properties": {
+                "$schema": {
+                    "description": "JSON Schema URI",
+                    "format": "uri",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatedAt": {
+            "properties": {
+                "updatedAt": {
+                    "format": "date",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
 }
 
