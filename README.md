@@ -17,13 +17,13 @@ To Contribute to "PolicyNexus Repository Types" please have a look at:
 You can install the Typescript-Types via `npm` or `yarn`.
 
 ```bash
-npm install $PACKAGE_NAME
+npm install @policynexus/repository-types
 ```
 
 After that just import the Types into your project aus usual:
 
 ```ts
-import * as PolicyNexus from '$PACKAGE_NAME'
+import * as PolicyNexus from '@policynexus/repository-types'
 
 const policyNexusDocument: PolicyNexus.Document = {
     "$schema": "https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-document.schema.json",
