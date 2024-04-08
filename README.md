@@ -58,5 +58,19 @@ Schema files are generated from the corresponding typescript types. You can upda
 git clone https://github.com/policynexus/repository-types
 cd repository-types
 npm install --dev
+# ...
 npm run build
+```
+
+
+## Publish to NPM
+
+If you have access to the PolicyNexus NPM Organization use the following lines to publish your changes:
+
+```bash
+git clone https://github.com/policynexus/repository-types
+cd repository-types
+# ...
+npm login
+npm publish --access public
 ```
