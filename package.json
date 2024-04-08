@@ -2,6 +2,7 @@
   "name": "policynexus-repository-types",
   "version": "1.0.0",
   "description": "Typedefinitions for PolicyNexus repositories",
+  "main": "main",
   "types": "main.d.ts",
   "scripts": {
     "schema:repository": "typescript-json-schema main.d.ts RepositoryConfig > schemas/policynexus-repository.schema.json",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/policynexus/repository-types#readme",
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript-json-schema": "^0.63.0"
   }
 }
