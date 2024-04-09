@@ -17,16 +17,16 @@ To Contribute to "PolicyNexus Repository Types" please have a look at:
 You can install the Typescript-Types via `npm` or `yarn`.
 
 ```bash
-npm install @policynexus/repository-types
+npm install @policynexus/source-repository-types
 ```
 
 After that just import the Types into your project aus usual:
 
 ```ts
-import * as PolicyNexus from '@policynexus/repository-types'
+import * as PolicyNexus from '@policynexus/source-repository-types 
 
 const policyNexusDocument: PolicyNexus.Document = {
-    "$schema": "https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-document.schema.json",
+    "$schema": "https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json",
     "name": "Example Document",
     "published": "2024-04-08",
     // ...
@@ -43,10 +43,10 @@ For more information about these types check out: `main.js`
 
 ## JSON-Schema
 
-As the JSON-Schema files are already included in the [Repository](https://github.com/policynexus/repository-types) it is recommended to just use the following files schema-files in a PolicyNexus Repository.
+As the JSON-Schema files are already included in the [Repository](https://github.com/policynexus/source-repository-types) it is recommended to just use the following files schema-files in a PolicyNexus Repository.
 
-- **Document:** https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-document.schema.json
-- **RepositoryConfig:** https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-repository.schema.json
+- **Document:** https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json
+- **RepositoryConfig:** https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-repository.schema.json
 
 # Local Development
 
@@ -55,8 +55,8 @@ As the JSON-Schema files are already included in the [Repository](https://github
 Schema files are generated from the corresponding typescript types. You can update the schema files as follows:
 
 ```bash
-git clone https://github.com/policynexus/repository-types
-cd repository-types
+git clone https://github.com/policynexus/source-repository-types
+cd source-repository-types
 npm install --dev
 # ...
 npm run build
@@ -68,8 +68,8 @@ npm run build
 If you have access to the PolicyNexus NPM Organization use the following lines to publish your changes:
 
 ```bash
-git clone https://github.com/policynexus/repository-types
-cd repository-types
+git clone https://github.com/policynexus/source-repository-types
+cd source-repository-types
 # ...
 npm login
 npm publish --access public

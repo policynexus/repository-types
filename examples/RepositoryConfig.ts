@@ -1,8 +1,8 @@
-// import PolicyNexusTypes from '@PolicyNexus/repository-types' 
+// import PolicyNexusTypes from '@PolicyNexus/source-repository-types' 
 import PolicyNexusTypes from '../main'
 
 const repositoryConfig: PolicyNexusTypes.RepositoryConfig = {
-    $schema: "https://raw.githubusercontent.com/policynexus/repository-types/main/schemas/policynexus-repository-config.schema.json",
+    $schema: "https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-repository-config.schema.json",
     documents: "https://example.com/documents",
     indexes: [
         {
