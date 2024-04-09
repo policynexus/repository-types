@@ -1,18 +1,8 @@
-# PolicyNexus Repository Types
+# PolicyNexus Source-Repository Types
 
-Type-Definitions for PolicyNexus Repositories.
-Contains definitions for:
+Type-Definitions for the Interface formats used in PolicyNexus Repositories.
 
-- [TypeScript](#typescript)
-- [JSON-Schema](#json-schema)
-
-To Contribute to "PolicyNexus Repository Types" please have a look at:
-
-- [Local Development](#local-development)
-
-# Usage
-
-## TypeScript
+# Installation
 
 You can install the Typescript-Types via `npm` or `yarn`.
 
@@ -20,10 +10,14 @@ You can install the Typescript-Types via `npm` or `yarn`.
 npm install @policynexus/source-repository-types
 ```
 
-After that just import the Types into your project aus usual:
+> The installation is only necessary for [use with Typescript](#use-with-typescript).
+> For [use with JSON-Schema](#use-with-json-schema) see below.
+
+# Use with Typescript
+
 
 ```ts
-import * as PolicyNexus from '@policynexus/source-repository-types 
+import * as PolicyNexus from '@policynexus/source-repository-types'
 
 const policyNexusDocument: PolicyNexus.Document = {
     "$schema": "https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json",
@@ -32,23 +26,40 @@ const policyNexusDocument: PolicyNexus.Document = {
     // ...
 }
 ```
+**More TypeScript examples:**
 
-The following types are included in this repository:
-
-- **Document**
-- **RepositoryConfig**
-
-For more information about these types check out: `main.js`
+- [Document.ts](/examples/Document.ts)
+- [RepositoryConfig.ts](/examples/RepositoryConfig.ts)
 
 
-## JSON-Schema
+# Use with JSON-Schema
 
-As the JSON-Schema files are already included in the [Repository](https://github.com/policynexus/source-repository-types) it is recommended to just use the following files schema-files in a PolicyNexus Repository.
+```json
+{
+    "$schema": "https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json",
+    "name": "Example Policy",
+    "publishedOn": "2021-01-01",
+    "artifacts": [
+        {
+            "type": "pdf",
+            "uri": "https://example.com/policy.pdf"
+        }
+    ],
+    // ...
+}
 
-- **Document:** https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json
-- **RepositoryConfig:** https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-repository.schema.json
+```
+**More JSON-Schama Examples:**
 
-# Local Development
+- [/examples/Document.json](/examples/Document.json)
+- [/examples/RepositoryConfig.json](/examples/RepositoryConfig.json)
+
+## Available JSON-Schemas
+
+- [/schemas/policynexus-document.schema.json](https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-document.schema.json)
+- [/schemas/policynexus-repository.schema.json](https://raw.githubusercontent.com/policynexus/source-repository-types/main/schemas/policynexus-repository.schema.json)
+
+# Development for Source-Repository Types
 
 ## Schema Generation
 
